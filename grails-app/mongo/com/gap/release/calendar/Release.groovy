@@ -9,8 +9,8 @@ import com.gap.mongo.converters.DateTimeConverter
 //@Converters(DateTimeConverter.class)
 class Release {
 	
-	String relDescription
-	//String relName
+	String releaseName
+	String releaseDesc
 	//@Embedded
 	//DateTime startDate
 	Date startDate

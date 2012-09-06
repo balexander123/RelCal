@@ -5,16 +5,36 @@ import org.bson.types.ObjectId
 import org.joda.time.*
 import org.joda.time.format.*
 import java.text.SimpleDateFormat
+import com.google.code.morphia.Datastore
 
 class RelCalRestController {
 	
 	def calDayGeneratorService
+	def datastoreService
 
     def index() { }
 	
 	def list = {
-		def relCalMap = [release:"12.08", iteration:"213", day:"2"]
-		render relCalMap as JSON
+		Datastore datastore = datastoreService.releaseCalendarDatastore()
+		
+		def List <Release> releaseList = datastore.find(Release.class).asList()
+		render releaseList as JSON
+	}
+	
+	def listRel = {
+		Datastore datastore = datastoreService.releaseCalendarDatastore()
+		
+		def Release release = datastore.find(Release.class, "releaseName =", params.get("releaseID")).get()
+		render release.encodeAsJSON()
+	}
+	
+	def listDay = {
+		Datastore datastore = datastoreService.releaseCalendarDatastore()
+		
+		Date calendarDate = new SimpleDateFormat("yyyy-MM-dd").parse(params.calDate)
+		
+		def Day day = datastore.find(Day.class, "relCalDay =", calendarDate).get()
+		render day.encodeAsJSON()
 	}
 	
 	def save = {
@@ -22,19 +42,15 @@ class RelCalRestController {
 		
 		def release = new Release()
 		
-		release.relDescription = json.release
+		release.releaseName = json.releaseName
+		release.releaseDesc = json.releaseDesc
 		DateTimeFormatter parser = ISODateTimeFormat.dateTimeParser()
-		DateTime startDate = parser.parseDateTime("2012-06-29T00:00:00-05:00")
-		release.startDate = new SimpleDateFormat("yyyy-MM-dd").parse("2012-06-29")
+		DateTime startDate = parser.parseDateTime(json.startDate)
+		release.startDate = new SimpleDateFormat("yyyy-MM-dd").parse(json.startDate)
 		release.relDurationDays = json.duration.toInteger()
 		release.numIterations = json.iterations.toInteger()
 		release.iterationNumber = json.iterationNumber.toInteger()
 		release.releaseFormat = json.releaseFormat
-		//release.relName = release.startDate.toString()
-		//release.relName = release.relName[26..27]
-		//DateTime nextReleaseDate = startDate.plusDays(release.getRelDurationDays())
-		//def relMonth = nextReleaseDate.monthOfYear.toString().padLeft(2,'0')
-		//release.relName = release.relName + '.' + relMonth
 		
 		if (release.save()) {
 			calDayGeneratorService.generateDays(release)

@@ -26,19 +26,19 @@
 	<g:field type="number" name="iterationNumber" required="" value="${fieldValue(bean: dayInstance, field: 'iterationNumber')}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: dayInstance, field: 'releaseName', 'error')} ">
-	<label for="releaseName">
-		<g:message code="day.releaseName.label" default="Release Name" />
-		
-	</label>
-	<g:textField name="releaseName" value="${dayInstance?.releaseName}"/>
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: dayInstance, field: 'relCalDay', 'error')} required">
 	<label for="relCalDay">
 		<g:message code="day.relCalDay.label" default="Rel Cal Day" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:datePicker name="relCalDay" precision="day"  value="${dayInstance?.relCalDay}"  />
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: dayInstance, field: 'release', 'error')} ">
+	<label for="release">
+		<g:message code="day.release.label" default="Release" />
+		
+	</label>
+	<g:textField name="release" value="${dayInstance?.release}"/>
 </div>
 

@@ -1,16 +1,11 @@
 package com.gap.release.calendar
 
-import com.google.code.morphia.Datastore
 import org.joda.time.DateTime
 import org.joda.time.Period
 
 class CalDayGeneratorService {
 	
-	def datastoreService
-
-    def generateDays(Release release) {
-		Datastore datastore = datastoreService.releaseCalendarDatastore()
-		
+    def generateDays(Release release) {		
 		Integer totalDuration = 0
 		DateTime nextReleaseDate = new DateTime(release.getStartDate())
 		nextReleaseDate = nextReleaseDate.plus(Period.days(release.getRelDurationDays()*2))
@@ -33,7 +28,7 @@ class CalDayGeneratorService {
 								day.iterationDay = itDay++
 								day.iterationNumber = iterationNumber
 								day.relCalDay = relCalDate
-								day.releaseName = relName
+								day.release = relName
 								day.releaseId = release.id
 								day.save()
 						}

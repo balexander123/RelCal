@@ -10,7 +10,7 @@ class Day {
 	
 	//DateTime relCalDay
 	Date relCalDay
-	String releaseName
+	String release
 	Integer iterationNumber
 	Integer iterationDay
 	ObjectId releaseId

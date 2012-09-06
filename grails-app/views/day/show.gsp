@@ -50,20 +50,20 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${dayInstance?.releaseName}">
-				<li class="fieldcontain">
-					<span id="releaseName-label" class="property-label"><g:message code="day.releaseName.label" default="Release Name" /></span>
-					
-						<span class="property-value" aria-labelledby="releaseName-label"><g:fieldValue bean="${dayInstance}" field="releaseName"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${dayInstance?.relCalDay}">
 				<li class="fieldcontain">
 					<span id="relCalDay-label" class="property-label"><g:message code="day.relCalDay.label" default="Rel Cal Day" /></span>
 					
 						<span class="property-value" aria-labelledby="relCalDay-label"><g:formatDate date="${dayInstance?.relCalDay}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${dayInstance?.release}">
+				<li class="fieldcontain">
+					<span id="release-label" class="property-label"><g:message code="day.release.label" default="Release" /></span>
+					
+						<span class="property-value" aria-labelledby="release-label"><g:fieldValue bean="${dayInstance}" field="release"/></span>
 					
 				</li>
 				</g:if>

@@ -30,9 +30,9 @@
 					
 						<g:sortableColumn property="iterationNumber" title="${message(code: 'day.iterationNumber.label', default: 'Iteration Number')}" />
 					
-						<g:sortableColumn property="releaseName" title="${message(code: 'day.releaseName.label', default: 'Release Name')}" />
-					
 						<g:sortableColumn property="relCalDay" title="${message(code: 'day.relCalDay.label', default: 'Rel Cal Day')}" />
+					
+						<g:sortableColumn property="release" title="${message(code: 'day.release.label', default: 'Release')}" />
 					
 					</tr>
 				</thead>
@@ -46,9 +46,9 @@
 					
 						<td>${fieldValue(bean: dayInstance, field: "iterationNumber")}</td>
 					
-						<td>${fieldValue(bean: dayInstance, field: "releaseName")}</td>
-					
 						<td><g:formatDate date="${dayInstance.relCalDay}" /></td>
+					
+						<td>${fieldValue(bean: dayInstance, field: "release")}</td>
 					
 					</tr>
 				</g:each>

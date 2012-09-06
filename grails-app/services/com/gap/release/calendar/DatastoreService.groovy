@@ -1,8 +1,8 @@
 package com.gap.release.calendar
 
-import org.springframework.beans.BeansException;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
+import org.springframework.beans.BeansException
+import org.springframework.context.ApplicationContext
+import org.springframework.context.ApplicationContextAware
 
 import com.google.code.morphia.Datastore
 import com.google.code.morphia.Morphia
@@ -14,7 +14,7 @@ class DatastoreService implements ApplicationContextAware {
 	
     Datastore releaseCalendarDatastore() {
 		Mongo mongo = applicationContext.getBean("myRelCalMongo")
-		Datastore datastore = new Morphia().createDatastore(mongo, "releaseCalendar")
+		Datastore datastore = new Morphia().createDatastore(mongo, "ReleaseCalendar")
 		datastore.ensureCaps()
 		return datastore
 	}

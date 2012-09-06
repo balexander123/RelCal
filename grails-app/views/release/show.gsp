@@ -41,6 +41,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${releaseInstance?.releaseDesc}">
+				<li class="fieldcontain">
+					<span id="releaseDesc-label" class="property-label"><g:message code="release.releaseDesc.label" default="Release Desc" /></span>
+					
+						<span class="property-value" aria-labelledby="releaseDesc-label"><g:fieldValue bean="${releaseInstance}" field="releaseDesc"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${releaseInstance?.iterationNumber}">
 				<li class="fieldcontain">
 					<span id="iterationNumber-label" class="property-label"><g:message code="release.iterationNumber.label" default="Iteration Number" /></span>
@@ -59,20 +68,20 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${releaseInstance?.releaseName}">
+				<li class="fieldcontain">
+					<span id="releaseName-label" class="property-label"><g:message code="release.releaseName.label" default="Release Name" /></span>
+					
+						<span class="property-value" aria-labelledby="releaseName-label"><g:fieldValue bean="${releaseInstance}" field="releaseName"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${releaseInstance?.relDurationDays}">
 				<li class="fieldcontain">
 					<span id="relDurationDays-label" class="property-label"><g:message code="release.relDurationDays.label" default="Rel Duration Days" /></span>
 					
 						<span class="property-value" aria-labelledby="relDurationDays-label"><g:fieldValue bean="${releaseInstance}" field="relDurationDays"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${releaseInstance?.relDescription}">
-				<li class="fieldcontain">
-					<span id="relDescription-label" class="property-label"><g:message code="release.relDescription.label" default="Rel Description" /></span>
-					
-						<span class="property-value" aria-labelledby="relDescription-label"><g:fieldValue bean="${releaseInstance}" field="relDescription"/></span>
 					
 				</li>
 				</g:if>

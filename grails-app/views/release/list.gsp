@@ -28,13 +28,13 @@
 					
 						<g:sortableColumn property="releaseFormat" title="${message(code: 'release.releaseFormat.label', default: 'Release Format')}" />
 					
+						<g:sortableColumn property="releaseDesc" title="${message(code: 'release.releaseDesc.label', default: 'Release Desc')}" />
+					
 						<g:sortableColumn property="iterationNumber" title="${message(code: 'release.iterationNumber.label', default: 'Iteration Number')}" />
 					
 						<g:sortableColumn property="numIterations" title="${message(code: 'release.numIterations.label', default: 'Num Iterations')}" />
 					
-						<g:sortableColumn property="relDurationDays" title="${message(code: 'release.relDurationDays.label', default: 'Rel Duration Days')}" />
-					
-						<g:sortableColumn property="relDescription" title="${message(code: 'release.relDescription.label', default: 'Rel Description')}" />
+						<g:sortableColumn property="releaseName" title="${message(code: 'release.releaseName.label', default: 'Release Name')}" />
 					
 					</tr>
 				</thead>
@@ -46,13 +46,13 @@
 					
 						<td>${fieldValue(bean: releaseInstance, field: "releaseFormat")}</td>
 					
+						<td>${fieldValue(bean: releaseInstance, field: "releaseDesc")}</td>
+					
 						<td>${fieldValue(bean: releaseInstance, field: "iterationNumber")}</td>
 					
 						<td>${fieldValue(bean: releaseInstance, field: "numIterations")}</td>
 					
-						<td>${fieldValue(bean: releaseInstance, field: "relDurationDays")}</td>
-					
-						<td>${fieldValue(bean: releaseInstance, field: "relDescription")}</td>
+						<td>${fieldValue(bean: releaseInstance, field: "releaseName")}</td>
 					
 					</tr>
 				</g:each>
